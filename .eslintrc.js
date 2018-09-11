@@ -5,6 +5,17 @@
  *   https://github.com/reactorcore/eslint-config-hackreactor
  */
 
+// module.exports = {
+//   extends: './node_modules/eslint-config-hackreactor/index.js'
+// };
+
 module.exports = {
-  extends: './node_modules/eslint-config-hackreactor/index.js'
+  extends: "airbnb",
+  env: {
+    "browser": true,
+    "node": true
+  }, 
+  rules: {
+    "no-console": 0
+  }
 };
