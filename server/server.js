@@ -25,7 +25,7 @@ app.get('/users/sideBar', function(req, res) {
   		return console.log(err)
   	} else {
   	// res.send(companies);
-  	// console.log(results)
+  	
   	res.json(results)
   }
   })

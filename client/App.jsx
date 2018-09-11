@@ -1,5 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import StickyBox from "react-sticky-box";
+import LimitOrder from "./components/LimitOrder.jsx";
+import StopLossOrder from "./components/StopLossOrder.jsx";
+import StopLimitOrder from "./components/StopLimitOrder.jsx";
 
 
 class App extends React.Component {
@@ -14,7 +18,10 @@ class App extends React.Component {
 	render() {
 		return (
 		  <div>
-		    <h1>hello!!</h1>
+		    <Limit Order />
+		    <Stop Loss Order />
+		    <Stop Limit Order />
+		    <div>Get Free Options Today!</div>
 		  </div>
 		)
 	}
