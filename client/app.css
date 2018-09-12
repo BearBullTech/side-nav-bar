@@ -1,0 +1,14 @@
+.content-sidebar {
+	color: #fff;
+	font-size: 13px;
+	font-weight: 400;
+	letter-spacing: 0.25px;
+	line-height: 19px;
+	position: fixed;
+  flex: 150px 0 0;
+  background-color: #252527;
+  padding: 20px 10px 40px;
+  width: 255.77778px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.25);
+  flex-direction: column;
+}

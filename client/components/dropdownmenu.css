@@ -1,0 +1,35 @@
+.menu-bar {
+  color: #fff;
+  display: inline-block;
+  float: right;
+}
+
+.mega-menu-content {
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 0.25px;
+  line-height: 19px;
+  color: white;
+  background-color: #252527;
+  position: absolute;
+  right: -30px;
+  padding: 0 24px;
+  top: 51.5px;
+
+  box-shadow: rgba(0,0,0,0.11765) 0px 1px 6px,rgba(0,0,0,0.11765) 0px 1px 4px;
+}
+
+.heading {
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: 0.25px;
+    line-height: 19px;
+    font-size: 16px;
+    align-items: center;
+    border-bottom: 1px solid;
+    border-color: #0e0d0d;
+    display: flex;
+    height: 52px;
+    margin: 0 -24px;
+    padding: 4px 24px 0;
+}
