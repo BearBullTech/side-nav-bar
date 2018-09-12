@@ -36,14 +36,11 @@ class DropDownMenu extends React.Component {
 				•••
 				</div>
 
-				{this.state.showMenu 
-					? (
-					<div
+				{this.state.showMenu ? (<div
 						className="mega-menu-content"
 						ref={(element) => {
 							this.dropdownMenu = element;
-						}}
-					>
+						}}>
 						<header className="heading"> Order Type </header>
 						<p onClick={() => {this.props.handleClick('market'); this.closeMenu(false)}}> Market Order </p>
 						<p onClick={() => {this.props.handleClick('limit'); this.closeMenu(false)}}> Limit Order </p>
@@ -51,10 +48,7 @@ class DropDownMenu extends React.Component {
 						<p onClick={() => {this.props.handleClick('stoploss'); this.closeMenu(false)}}> Stop Loss Order </p>
 						<p> Get Free Options<br></br>Trading</p>
 						</div>
-					)
-					: (
-							null
-						)
+					): (null)
 				}
 				</div>
 			);

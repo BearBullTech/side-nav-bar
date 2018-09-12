@@ -1,11 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import StickyBox from 'react-sticky-box';
-import DropDownMenu from './components/DropDownMenu.jsx';
+import DropDownMenu from './components/DropDownMenu/DropDownMenu.jsx';
 import MarketOrder from './components/MarketOrder.jsx';
 import LimitOrder from './components/LimitOrder.jsx';
 import StopLossOrder from './components/StopLossOrder.jsx';
 import StopLimitOrder from './components/StopLimitOrder.jsx';
+import defaultData from './defaultData.js'
 import $ from 'jquery';
 import "./app.css";
 
@@ -14,20 +15,20 @@ class App extends React.Component {
 		super(props);
 		this.state = {
 			view: 'market',
-			companyData: ''
+			companyData: defaultData
 
 		}
-
+    this.changeView = this.changeView.bind(this);
 	}
 
-	componentDidMount() {
-    $.ajax({
-      url: 'http://localhost:3004/users/sideBar',
-      method: 'GET',
-      success: data => {this.setState({companyData: data});},
-      error: () => console.log('error in getting!')
-    })
-  }
+	// componentDidMount() {
+ //    $.ajax({
+ //      url: 'http://localhost:3004/users/sideBar',
+ //      method: 'GET',
+ //      success: data => {this.setState({companyData: data});},
+ //      error: () => console.log('error in getting!')
+ //    })
+ //  }
 
   changeView(option) {
     this.setState({
@@ -53,7 +54,7 @@ class App extends React.Component {
 		return (
 			
 			<div className="content-sidebar">
-			<DropDownMenu handleClick={this.changeView.bind(this)}/>
+			<DropDownMenu handleClick={this.changeView}/>
         {this.renderView()}      
       </div>
       
