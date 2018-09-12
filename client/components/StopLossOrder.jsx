@@ -7,3 +7,5 @@ const StopLossOrder = (props) => {
 		</div>
 		)
 }
+
+export default StopLossOrder;

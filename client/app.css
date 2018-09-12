@@ -1,0 +1,10 @@
+.content-sidebar {
+  flex: 150px 0 0;
+  background-color: #252527;
+  padding: 20px 10px 40px;
+  top: 95px;
+  height: 488px;
+  width: 275.77778px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.25);
+  flex-direction: column;
+}

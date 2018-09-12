@@ -7,3 +7,5 @@ const StopLimitOrder = (props) => {
 		</div>
 		)
 }
+
+export default StopLimitOrder;
