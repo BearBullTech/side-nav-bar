@@ -53,9 +53,13 @@ class App extends React.Component {
   render() {
 
     return (
-      <div className="content-sidebar">
-      <DropDownMenu handleClick={this.changeView}/>
-      {this.renderView()}      
+      <div>
+        <div className="content-sidebar">
+          <DropDownMenu handleClick={this.changeView}/>
+          {this.renderView()}      
+        </div>
+        <button className="watchList"> Add to Watchlist </button>
+
       </div>
     )
   }
