@@ -20,38 +20,3 @@ const Company = mongoose.model('Company', companiesSchema);
 // });
 
 module.exports = Company;
-//save multiple data files look up 'bulkwrite'
-
-// var userSchema = new mongoose.Schema({
-// 	name: String,
-// 	age: Number,
-// 	admin: Boolean
-// });
-
-// var User = mongoose.model('User', userSchema);
-
-// var roy = new User({name: 'Roy', age: 29, admin: true});
-// var andrew = new User({name: 'Andrew', age: 30, admin: false});
-
-// roy.save((err, roy) => {
-// 	if (err) { 
-// 		console.err(err);
-// 	} else {
-// 		console.log('saved into db!')
-// 	}
-// })
-
-// andrew.save((err, users) => {
-// 	if (err) { 
-// 		console.err(err);
-// 	} else {
-// 		console.log(users.name + ' saved into db!')
-// 	}
-// })
-// User.find((err, users) => {
-// 	if (err) {
-// 		console.error(err);
-// 	} else {
-// 		console.log(users, ':was found')
-// 	}
-// })
