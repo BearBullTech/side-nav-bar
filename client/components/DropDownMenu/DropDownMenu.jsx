@@ -30,6 +30,8 @@ class DropDownMenu extends React.Component {
 	}
 
 	render() {
+		const {handleClick} = this.props;
+
 		return (
 			<div>
 				<div className="menu-bar" onClick={this.showMenu}>
@@ -42,10 +44,10 @@ class DropDownMenu extends React.Component {
 							this.dropdownMenu = element;
 						}}>
 						<header className="heading"> Order Type </header>
-						<p onClick={() => {this.props.handleClick('market'); this.closeMenu(false)}}> Market Order </p>
-						<p onClick={() => {this.props.handleClick('limit'); this.closeMenu(false)}}> Limit Order </p>
-						<p onClick={() => {this.props.handleClick('stoplimit'); this.closeMenu(false)}}> Stop Limit Order </p>
-						<p onClick={() => {this.props.handleClick('stoploss'); this.closeMenu(false)}}> Stop Loss Order </p>
+						<p onClick={() => {handleClick('market'); this.closeMenu(false)}}> Market Order </p>
+						<p onClick={() => {handleClick('limit'); this.closeMenu(false)}}> Limit Order </p>
+						<p onClick={() => {handleClick('stoplimit'); this.closeMenu(false)}}> Stop Limit Order </p>
+						<p onClick={() => {handleClick('stoploss'); this.closeMenu(false)}}> Stop Loss Order </p>
 						<p> Get Free Options<br></br>Trading</p>
 						</div>
 					): (null)

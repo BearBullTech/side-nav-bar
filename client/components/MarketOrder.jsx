@@ -5,25 +5,27 @@ class MarketOrder extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-
 			total: 0
 		}
+
 	}
 	
   onChangeHandler(e) {
-  	var results = eval(this.props.companies[0].currentDay[0].currentPrice * parseFloat(e.target.value));
+  	const {companies} = this.props;
+  	var results = eval(companies[0].currentDay[0].currentPrice * parseFloat(e.target.value));
 		this.setState({
     	total: results
     })
   }
 
 	render() {
-	// console.log('Market order props', this.props.companies[0].currentDay[0].currentPrice)
+	// console.log('Market order props', companies[0].currentDay[0].currentPrice)
+	const {companies} = this.props;
 		return(
 			<div>
 
 				<div className="mainMenu">
-					<header className="header-class"> Buy {this.props.companies[0].company}</header>
+					<header className="header-class"> Buy {companies[0].company}</header>
 					<div className="menuBody">
 						<label>
 						<div> Shares </div>
@@ -31,7 +33,7 @@ class MarketOrder extends React.Component {
 						</label>
 						<label>
 							<a className="clickable"> Market Price </a>
-						<span> ${this.props.companies[0].currentDay[0].currentPrice} </span>
+						<span> ${companies[0].currentDay[0].currentPrice} </span>
 						</label>
 						<label className="estimatedCost">
 							<div>Estimated Cost</div>
