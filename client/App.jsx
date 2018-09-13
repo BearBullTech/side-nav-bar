@@ -15,7 +15,8 @@ class App extends React.Component {
 		super(props);
 		this.state = {
 			view: 'market',
-			companyData: defaultData
+			companyData: defaultData,
+      watchList: 'add'
 		}
     this.changeView = this.changeView.bind(this);
   }
@@ -50,6 +51,22 @@ class App extends React.Component {
     }
   }
 
+  changeWatch(option) {
+    this.setState({
+      watchList: option
+    });
+  }
+
+  renderWatch() {
+    const {watchList} = this.state;
+
+    if (watchList === 'add') {
+      return <button className="watchList" onClick={()=>{this.changeWatch('remove')}}> Add to Watchlist </button>
+    } else {
+      return <button className="watchList" onClick={()=>{this.changeWatch('add')}}> Remove from Watchlist </button>
+    }
+  }
+
   render() {
 
     return (
@@ -58,8 +75,7 @@ class App extends React.Component {
           <DropDownMenu handleClick={this.changeView}/>
           {this.renderView()}      
         </div>
-        <button className="watchList"> Add to Watchlist </button>
-
+          {this.renderWatch()}
       </div>
     )
   }
