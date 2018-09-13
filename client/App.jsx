@@ -43,7 +43,7 @@ class App extends React.Component {
     	return <MarketOrder companies={this.state.companyData}/>
     } else if (view === 'limit') {
     	return <LimitOrder companies={this.state.companyData}/>
-    } else if(view ==='stoploss'){
+    } else if(view ==='stoploss') {
       return <StopLossOrder/>
     } else {
     	return <StopLimitOrder />
@@ -52,10 +52,10 @@ class App extends React.Component {
 
 	render() {
 		return (
-			
+			<div>
 			<div className="content-sidebar">
 			<DropDownMenu handleClick={this.changeView}/>
-        {this.renderView()}      
+      {this.renderView()}      
       </div>
       
 

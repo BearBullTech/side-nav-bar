@@ -50,3 +50,20 @@ label input {
 	border-top: 1px solid;
 	justify-content: space-between;
 }
+
+.checkOut {
+  padding: 12px 24px;
+  margin: 0 -12px;
+}
+
+.button {
+	background-color: #21ce99;
+	border-color: #21ce99;
+	border-radius: 4px;
+	font-weight: 500;
+	justify-content: center;
+	height: 48px;
+	border: 1px solid transparent;
+	width: 227.766px;
+	padding: 0 32px 0 32px;
+}

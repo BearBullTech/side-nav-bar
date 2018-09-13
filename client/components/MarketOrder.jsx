@@ -24,6 +24,9 @@ const MarketOrder = (props) => {
 						<div>Estimated Cost</div>
 						<span> $0.00 </span>
 					</label>
+					<div className="checkOut">
+						<button className="button"> Review Order </button>
+					</div>
 				</div>
 			</div>
 			<footer className="footer-class"> $0.00 Buying Power Available </footer>
