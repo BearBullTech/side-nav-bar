@@ -19,7 +19,7 @@ class MarketOrder extends React.Component {
   }
 
 	render() {
-	// console.log('Market order props', companies[0].currentDay[0].currentPrice)
+	
 	const {companies} = this.props;
 		return(
 			<div>
