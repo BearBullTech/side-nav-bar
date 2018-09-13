@@ -44,9 +44,9 @@ class App extends React.Component {
     } else if (view === 'limit') {
       return <LimitOrder companies={this.state.companyData}/>
     } else if(view ==='stoploss') {
-      return <StopLossOrder/>
+      return <StopLossOrder companies={this.state.companyData}/>
     } else {
-      return <StopLimitOrder />
+      return <StopLimitOrder companies={this.state.companyData}/>
     }
   }
 

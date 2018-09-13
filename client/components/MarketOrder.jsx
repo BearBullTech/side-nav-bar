@@ -1,5 +1,7 @@
 import React from 'react';
+import PopUp from './PopUp/PopUp.jsx';
 import "../app.css";
+
 
 class MarketOrder extends React.Component {
 	constructor(props) {
@@ -32,7 +34,7 @@ class MarketOrder extends React.Component {
 							<input className="orderInput" min="0" placeholder="0" step="1" name="quantity" value={this.state.inputVal} onChange={this.onChangeHandler.bind(this)}></input>
 						</label>
 						<label>
-							<a className="clickable"> Market Price </a>
+							<PopUp companies={companies} name="fuck Price"/>
 						<span> ${companies[0].currentDay[0].currentPrice} </span>
 						</label>
 						<label className="estimatedCost">

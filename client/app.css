@@ -1,8 +1,8 @@
 body {
-	background-color: black;
+	/*background-color: black;*/
 }
 .content-sidebar {
-	color: #fff;
+	/*color: #fff;*/
 	/*color: #171718;*/
 	font-size: 13px;
 	font-family: DIN Pro,-apple-system,BlinkMacSystemFont,sans-serif;
@@ -10,9 +10,8 @@ body {
 	line-height: 19px;
 	position: fixed;
   flex: 150px 0 0;
-
-  background-color: #252527;
-  /*background-color: #f4f4f5;*/
+  right: 100px;
+  /*background-color: #252527;*/
   padding: 20px 10px 40px;
   width: 255.77778px;
   box-shadow: 0 0 4px 1px rgba(0,0,0,.01), 0 3px 24px rgba(48,51,51,.09);
@@ -24,7 +23,8 @@ body {
   justify-content: space-between;
   padding: 0px 12px 0;
   border-bottom: 1px solid;
-  border-bottom-color: black;
+  /*border-bottom-color: black;*/
+  border-bottom-color: lightgrey;
   margin: 0 -10px;
   height: 32px;
 }
@@ -48,15 +48,20 @@ label {
 
 label input {
 	text-align: right;
-	background-color: #1B1B1D;
-	border-color: #1B1B1D;
+	/*background-color: #1B1B1D;*/
+	/*border-color: #1B1B1D;*/
+  border-color: transparent;
+  background-color: #F3F3F3;
+  /*background-color: #171718;*/
 	border-radius: 4px;
-	color: #fff;
+	/*color: #fff;*/
+  color: black;
 }
 
 .estimatedCost {
 	border-top: 1px solid;
-	border-top-color: black;
+	/*border-top-color: black;*/
+  border-top-color: lightgrey;
 	justify-content: space-between;
 }
 
@@ -75,12 +80,14 @@ label input {
 	border: 1px solid transparent;
 	width: 227.766px;
 	padding: 0 32px 0 32px;
+  color: white;
 }
 
 .footerclass {
   margin: 0 -10px;
   border-top: 1px solid;
-  border-top-color: black;
+  /*border-top-color: black;*/
+  border-top-color: lightgrey;
   text-align: center;
   padding-top: 10px;
   margin-bottom: -20px;
@@ -97,11 +104,60 @@ label input {
     border-color: #21ce99;
     height: 48px;
     margin-top: 24px;
-    position: relative;
+    position: fixed;
     top: 350px;
     margin: 24px 24px;
+    right: 100px;
+    z-index: -1;
 }
 
 button:focus {
 	outline:0;
 }
+
+.popup-menu {
+  font-weight: 500;
+  letter-spacing: 0.25px;
+  line-height: 19px;
+  /* color: #fff; */
+  color: #171718;
+  /* background-color: #252527; */
+  background-color: white;
+  position: absolute;
+  /* right: -30px; */
+  padding: 0 24px;
+  top: 160.5px;
+  left: -145px;
+  margin: 0 -24px;
+  width: 243px;
+  height: 337px;
+  box-shadow: rgba(0,0,0,0.11765) 0px 1px 6px, rgba(0,0,0,0.11765) 0px 1px 4px;
+  }
+
+.popupHeader {
+  text-align: left;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0px 12px 12px;
+/*  border-bottom: 1px solid;
+   border-bottom-color: black; 
+  border-bottom-color: lightgrey;*/
+  margin: 20px -24px 20px -24px;
+  height: 66px;
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: 22px;
+}
+
+.popupFooter {
+  margin: 0 -10px;
+  border-top: 1px solid;
+  /*border-top-color: black;*/
+  border-top-color: lightgrey;
+  text-align: left;
+  padding-top: 10px;
+  margin-bottom: -20px;
+  color: lightgrey;
+}
+
