@@ -1,28 +1,42 @@
 import React from 'react';
 import "../app.css";
 
-const MarketOrder = (props) => {
-	console.log('Market order props', props.companies[0].currentDay[0].currentPrice)
-	// const companies = this.props.companies.find(e => e.company === condition);
+class MarketOrder extends React.Component {
+	constructor(props) {
+		super(props);
+		this.state = {
 
-	return (
+			total: 0
+		}
+	}
+	
+  onChangeHandler(e) {
+  	var results = eval(this.props.companies[0].currentDay[0].currentPrice * parseFloat(e.target.value));
+		this.setState({
+    	total: results
+    })
+  }
+
+	render() {
+	// console.log('Market order props', this.props.companies[0].currentDay[0].currentPrice)
+		return(
 		<div>
 			<div className="mainMenu">
 
-				<header className="header-class"> Buy {props.companies[0].company}</header>
+				<header className="header-class"> Buy {this.props.companies[0].company}</header>
 
 				<div className="menuBody">
 					<label>
 					<div> Shares </div>
-						<input className="orderInput" min="0" placeholder="0" name="quantity"></input>
+						<input className="orderInput" min="0" placeholder="0" step="1" name="quantity" value={this.state.inputVal} onChange={this.onChangeHandler.bind(this)}></input>
 					</label>
 					<label>
 						<a className="clickable"> Market Price </a>
-					<span> ${props.companies[0].currentDay[0].currentPrice} </span>
+					<span> ${this.props.companies[0].currentDay[0].currentPrice} </span>
 					</label>
 					<label className="estimatedCost">
 						<div>Estimated Cost</div>
-						<span> $0.00 </span>
+						<span> ${this.state.total || "0.00"} </span>
 					</label>
 					<div className="checkOut">
 						<button className="button"> Review Order </button>
@@ -32,6 +46,7 @@ const MarketOrder = (props) => {
 			<footer className="footer-class"> $0.00 Buying Power Available </footer>
 		</div>
 		)
+	}
 }
 
 export default MarketOrder;
