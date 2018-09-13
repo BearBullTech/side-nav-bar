@@ -1,6 +1,6 @@
 const defaultData =[
 {
-	company : "Ledner - Olson",
+	company : "HRSF",
 	currentDay : [
 		{
 			"currentTime" : "09:00am",

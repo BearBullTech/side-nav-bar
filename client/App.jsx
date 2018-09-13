@@ -16,19 +16,19 @@ class App extends React.Component {
 		this.state = {
 			view: 'market',
 			companyData: defaultData
-
 		}
     this.changeView = this.changeView.bind(this);
-	}
+  }
 
-	// componentDidMount() {
- //    $.ajax({
- //      url: 'http://localhost:3004/users/sideBar',
- //      method: 'GET',
- //      success: data => {this.setState({companyData: data});},
- //      error: () => console.log('error in getting!')
- //    })
- //  }
+  componentDidMount() {
+    console.log('this is the window location', window.location)
+    $.ajax({
+      url: 'http://localhost:3004/stocks/sideBar' + window.location.pathname,
+      method: 'GET',
+      success: data => {this.setState({companyData: data});},
+      error: () => console.log('error in getting!')
+    })
+  }
 
   changeView(option) {
     this.setState({
@@ -36,30 +36,29 @@ class App extends React.Component {
     });
   }
 
-	  renderView() {
+    renderView() {
     const {view} = this.state;
 
     if (view === 'market') {
-    	return <MarketOrder companies={this.state.companyData}/>
+      return <MarketOrder companies={this.state.companyData}/>
     } else if (view === 'limit') {
-    	return <LimitOrder companies={this.state.companyData}/>
+      return <LimitOrder companies={this.state.companyData}/>
     } else if(view ==='stoploss') {
       return <StopLossOrder/>
     } else {
-    	return <StopLimitOrder />
+      return <StopLimitOrder />
     }
   }
 
-	render() {
-		return (
+  render() {
 
-			<div className="content-sidebar">
-			<DropDownMenu handleClick={this.changeView}/>
+    return (
+      <div className="content-sidebar">
+      <DropDownMenu handleClick={this.changeView}/>
       {this.renderView()}      
       </div>
-
-		)
-	}
+    )
+  }
 }
 
 ReactDOM.render(<App />, document.getElementById('app'));
