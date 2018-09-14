@@ -1,6 +1,6 @@
 import React from 'react';
 import PopUp from './PopUp/PopUp.jsx';
-import "../app.css";
+// import "../app.css";
 
 
 class MarketOrder extends React.Component {
@@ -54,7 +54,7 @@ class MarketOrder extends React.Component {
   	const {companies} = this.props;
   	const numOfShare = total/companies[0].currentDay[0].currentPrice;
 
-	  if (total === 0) {
+	  if (total === 0 || NaN) {
 	  	if (showMenu === false) {
 	  		return (
 	  			<div>
