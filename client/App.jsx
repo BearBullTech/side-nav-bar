@@ -8,8 +8,10 @@ import StopLossOrder from './components/StopLossOrder.jsx';
 import StopLimitOrder from './components/StopLimitOrder.jsx';
 import defaultData from './defaultData.js'
 import $ from 'jquery';
-import "./app.css";
+// import "./app.css";
+import "./closedMarket.css";
 
+//get rid of all comments
 class App extends React.Component {
 	constructor(props) {
 		super(props);
@@ -20,10 +22,10 @@ class App extends React.Component {
     this.changeView = this.changeView.bind(this);
   }
 
-  componentDidMount() {
+  componentDidMount() { //use axios instead of jquery
     console.log('this is the window location', window.location)
     $.ajax({
-      url: 'http://localhost:3004/stocks/sideBar' + window.location.pathname,
+      url: '/stocks/sideBar' + window.location.pathname,
       method: 'GET',
       success: data => {this.setState({companyData: data});},
       error: () => console.log('error in getting!')
@@ -37,18 +39,19 @@ class App extends React.Component {
   }
 
     renderView() {
-    const {view} = this.state;
+    const {view, companyData} = this.state;
 
     if (view === 'market') {
-      return <MarketOrder companies={this.state.companyData}/>
+      return <MarketOrder companies={companyData}/>
     } else if (view === 'limit') {
-      return <LimitOrder companies={this.state.companyData}/>
+      return <LimitOrder companies={companyData}/>
     } else if(view ==='stoploss') {
-      return <StopLossOrder/>
+      return <StopLossOrder companies={companyData}/>
     } else {
-      return <StopLimitOrder />
+      return <StopLimitOrder companies={companyData}/>
     }
   }
+
 
   render() {
 
@@ -58,8 +61,6 @@ class App extends React.Component {
           <DropDownMenu handleClick={this.changeView}/>
           {this.renderView()}      
         </div>
-        <button className="watchList"> Add to Watchlist </button>
-
       </div>
     )
   }

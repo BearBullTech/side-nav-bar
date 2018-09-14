@@ -1,5 +1,6 @@
 import React from 'react';
-import "./dropdownmenu.css";
+// import "./dropdownmenu.css";
+import "./closedmarketdropdown.css";
 
 
 class DropDownMenu extends React.Component {
@@ -15,12 +16,12 @@ class DropDownMenu extends React.Component {
 
 	showMenu(event) {
 		event.preventDefault();
-
+//dont want to be typing in document
 		this.setState({ showMenu: true}, () => {
 			document.addEventListener('click', this.closeMenu);
 		});
 	}
-
+//read documentation for setState in react docs
 	closeMenu(event) {
 		if (!this.dropdownMenu.contains(event.target)) {
 			this.setState({ showMenu: false}, () => {

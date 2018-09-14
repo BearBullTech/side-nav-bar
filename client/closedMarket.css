@@ -1,9 +1,8 @@
 body {
-	/*background-color: black;*/
+	background-color: #252527;
 }
 .content-sidebar {
-	/*color: #fff;*/
-	/*color: #171718;*/
+	color: #fff;
 	font-size: 13px;
 	font-family: DIN Pro,-apple-system,BlinkMacSystemFont,sans-serif;
 	letter-spacing: 0.25px;
@@ -11,10 +10,11 @@ body {
 	position: fixed;
   flex: 150px 0 0;
   right: 100px;
-  /*background-color: #252527;*/
+  background-color: #252527;
+  border-color: black;
   padding: 20px 10px 40px;
   width: 255.77778px;
-  box-shadow: 0 0 4px 1px rgba(0,0,0,.01), 0 3px 24px rgba(48,51,51,.09);
+  box-shadow: 0 0 4px 2px rgba(25, 23, 23, 0.92), 0 3px 24px rgba(48, 51, 51, 0);
   flex-direction: column;
 }
 
@@ -23,8 +23,8 @@ body {
   justify-content: space-between;
   padding: 0px 12px 0;
   border-bottom: 1px solid;
-  /*border-bottom-color: black;*/
-  border-bottom-color: lightgrey;
+  border-bottom-color: black;
+ 
   margin: 0 -10px;
   height: 32px;
 }
@@ -48,20 +48,18 @@ label {
 
 label input {
 	text-align: right;
-	/*background-color: #1B1B1D;*/
-	/*border-color: #1B1B1D;*/
+	background-color: #1B1B1D;
+	border-color: #1B1B1D;
   border-color: transparent;
-  background-color: #F3F3F3;
-  /*background-color: #171718;*/
 	border-radius: 4px;
-	/*color: #fff;*/
-  color: black;
+	color: #fff;
+
 }
 
 .estimatedCost {
 	border-top: 1px solid;
-	/*border-top-color: black;*/
-  border-top-color: lightgrey;
+	border-top-color: black;
+
 	justify-content: space-between;
 }
 
@@ -81,15 +79,15 @@ label input {
 	border: 1px solid transparent;
 	width: 227.766px;
 	padding: 0 32px 0 32px;
-  color: white;
+  color: black;
   margin: 0 14px;
 }
 
 .footerclass {
   margin: 0 -10px;
   border-top: 1px solid;
-  /*border-top-color: black;*/
-  border-top-color: lightgrey;
+  border-top-color: black;
+
   text-align: center;
   padding-top: 10px;
   margin-bottom: -20px;
@@ -120,12 +118,11 @@ button:focus {
   font-weight: 500;
   letter-spacing: 0.25px;
   line-height: 19px;
-  /* color: #fff; */
-  color: #171718;
-  /* background-color: #252527; */
-  background-color: white;
+   color: #fff; 
+
+   background-color: #252527; 
+
   position: absolute;
-  /* right: -30px; */
   padding: 0 24px;
   top: 160.5px;
   left: -145px;
@@ -140,9 +137,9 @@ button:focus {
   align-items: center;
   justify-content: space-between;
   padding: 0px 12px 12px;
-/*  border-bottom: 1px solid;
-   border-bottom-color: black; 
-  border-bottom-color: lightgrey;*/
+  border-bottom: 1px solid;
+  border-bottom-color: black; 
+  border-bottom-color: lightgrey;
   margin: 20px -24px 20px -24px;
   height: 66px;
   font-size: 16px;
@@ -154,8 +151,8 @@ button:focus {
 .popupFooter {
   margin: 0 -10px;
   border-top: 1px solid;
-  /*border-top-color: black;*/
-  border-top-color: lightgrey;
+  border-top-color: black;
+
   text-align: left;
   padding-top: 10px;
   margin-bottom: -20px;
@@ -166,10 +163,10 @@ button:focus {
   font-weight: 500;
   letter-spacing: 0.25px;
   line-height: 19px;
-  /*color: #fff;*/
-  color: #171718;
-  /*background-color: #252527;*/
-  background-color: white;
+  color: #fff;
+
+  background-color: #252527;
+
   right: -30px;
   padding: 0 24px;
   top: 51.5px;
@@ -190,4 +187,5 @@ button:focus {
     margin-left: 14px;
     width: 227.77px;
     margin-top: 10px;
+    background: none;
 }
