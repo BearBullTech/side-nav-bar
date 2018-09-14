@@ -64,7 +64,7 @@ class MarketOrder extends React.Component {
 	  	} else {
 	  		return (
 	  			<div>
-					<div> <circle cx="8" cy="10" r="8"></circle> Error</div>
+					<div> Error </div>
 					<div> Please enter a valid number of shares.</div><br></br><br></br>
 	  			<button className="button" onClick={this.closeMenu}> Back </button>
 	  			</div>)

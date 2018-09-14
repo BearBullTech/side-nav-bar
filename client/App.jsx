@@ -10,6 +10,7 @@ import defaultData from './defaultData.js'
 import $ from 'jquery';
 // import "./app.css";
 import "./closedMarket.css";
+
 //get rid of all comments
 class App extends React.Component {
 	constructor(props) {
@@ -38,16 +39,16 @@ class App extends React.Component {
   }
 
     renderView() {
-    const {view} = this.state;
+    const {view, companyData} = this.state;
 
     if (view === 'market') {
-      return <MarketOrder companies={this.state.companyData}/>
+      return <MarketOrder companies={companyData}/>
     } else if (view === 'limit') {
-      return <LimitOrder companies={this.state.companyData}/>
+      return <LimitOrder companies={companyData}/>
     } else if(view ==='stoploss') {
-      return <StopLossOrder companies={this.state.companyData}/>
+      return <StopLossOrder companies={companyData}/>
     } else {
-      return <StopLimitOrder companies={this.state.companyData}/>
+      return <StopLimitOrder companies={companyData}/>
     }
   }
 
