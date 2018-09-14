@@ -12,7 +12,6 @@ app.use(logger("dev"));
 
 
 app.use(express.static(path.join(__dirname, '../public')))
-//app.use('/:company', express.static(path.join(__dirname, '../public')))
 
 app.get('/:company', function(req, res) {
   res.sendFile(path.join(__dirname, '../public/index.html'));
@@ -24,14 +23,10 @@ mongoose.connect('mongodb://localhost/fecdata', {useNewUrlParser: true}, (err) =
 
 
 app.get('/stocks/sideBar', function(req, res) {
-  // res.sendFile(path.join(__dirname, '../public/index.html'))
   db.find({}, function(err, results) {
   	if (err) {
   		return console.log(err)
   	} else {
-  	// res.send(companies);
-  	// console.log(JSON.stringify(results))
-    // console.log('HELLO FROM SERVER!')
   	res.json(results)
   }
   })
@@ -48,18 +43,8 @@ app.get('/stocks/sideBar/:company', (req, res) => {
   })
 })
 
-//Router for Server
 app.use('/stocks/sideBar', sideBar)
 
 app.listen(PORT, () => {
   console.log("Listening to port: ", PORT)
 })
-
-
-/*
-app.get('/api/blogs', function(req, res) {
-  Blogs.find({}, function(err, blogs) {
-  	res.send(blogs);
-  })
-});
-*/

@@ -9,22 +9,21 @@ import StopLimitOrder from './components/StopLimitOrder.jsx';
 import defaultData from './defaultData.js'
 import $ from 'jquery';
 import "./app.css";
-
+//get rid of all comments
 class App extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
 			view: 'market',
-			companyData: defaultData,
-      watchList: 'add'
+			companyData: defaultData
 		}
     this.changeView = this.changeView.bind(this);
   }
 
-  componentDidMount() {
+  componentDidMount() { //use axios instead of jquery
     console.log('this is the window location', window.location)
     $.ajax({
-      url: 'http://localhost:3004/stocks/sideBar' + window.location.pathname,
+      url: '/stocks/sideBar' + window.location.pathname,
       method: 'GET',
       success: data => {this.setState({companyData: data});},
       error: () => console.log('error in getting!')
@@ -51,21 +50,6 @@ class App extends React.Component {
     }
   }
 
-  changeWatch(option) {
-    this.setState({
-      watchList: option
-    });
-  }
-
-  renderWatch() {
-    const {watchList} = this.state;
-
-    if (watchList === 'add') {
-      return <button className="watchList" onClick={()=>{this.changeWatch('remove')}}> Add to Watchlist </button>
-    } else {
-      return <button className="watchList" onClick={()=>{this.changeWatch('add')}}> Remove from Watchlist </button>
-    }
-  }
 
   render() {
 
@@ -75,7 +59,6 @@ class App extends React.Component {
           <DropDownMenu handleClick={this.changeView}/>
           {this.renderView()}      
         </div>
-          {this.renderWatch()}
       </div>
     )
   }
