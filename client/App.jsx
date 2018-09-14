@@ -8,15 +8,15 @@ import StopLossOrder from './components/StopLossOrder.jsx';
 import StopLimitOrder from './components/StopLimitOrder.jsx';
 import defaultData from './defaultData.js'
 import $ from 'jquery';
-// import "./app.css";
-import "./closedMarket.css";
+import "./app.css";
+// import "./closedMarket.css";
 
 //get rid of all comments
 class App extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			view: 'market',
+			view: 'Market',
 			companyData: defaultData
 		}
     this.changeView = this.changeView.bind(this);
@@ -41,14 +41,14 @@ class App extends React.Component {
     renderView() {
     const {view, companyData} = this.state;
 
-    if (view === 'market') {
-      return <MarketOrder companies={companyData}/>
-    } else if (view === 'limit') {
-      return <LimitOrder companies={companyData}/>
-    } else if(view ==='stoploss') {
-      return <StopLossOrder companies={companyData}/>
+    if (view === 'Market') {
+      return <MarketOrder view={view} companies={companyData}/>
+    } else if (view === 'Limit') {
+      return <LimitOrder view={view} companies={companyData}/>
+    } else if(view ==='Stop') {
+      return <StopLossOrder view={view} companies={companyData}/>
     } else {
-      return <StopLimitOrder companies={companyData}/>
+      return <StopLimitOrder view={view} companies={companyData}/>
     }
   }
 

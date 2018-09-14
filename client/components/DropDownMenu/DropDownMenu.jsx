@@ -1,6 +1,6 @@
 import React from 'react';
-// import "./dropdownmenu.css";
-import "./closedmarketdropdown.css";
+import "./dropdownmenu.css";
+// import "./closedmarketdropdown.css";
 
 
 class DropDownMenu extends React.Component {
@@ -45,10 +45,10 @@ class DropDownMenu extends React.Component {
 							this.dropdownMenu = element;
 						}}>
 						<header className="heading"> Order Type </header>
-						<p onClick={() => {handleClick('market'); this.closeMenu(false)}}> Market Order </p>
-						<p onClick={() => {handleClick('limit'); this.closeMenu(false)}}> Limit Order </p>
-						<p onClick={() => {handleClick('stoplimit'); this.closeMenu(false)}}> Stop Limit Order </p>
-						<p onClick={() => {handleClick('stoploss'); this.closeMenu(false)}}> Stop Loss Order </p>
+						<p onClick={() => {handleClick('Market'); this.closeMenu(false)}}> Market Order </p>
+						<p onClick={() => {handleClick('Limit'); this.closeMenu(false)}}> Limit Order </p>
+						<p onClick={() => {handleClick('Stop'); this.closeMenu(false)}}> Stop Loss Order </p>
+						<p onClick={() => {handleClick(' Limit'); this.closeMenu(false)}}> Stop Limit Order </p>
 						<p> Get Free Options<br></br>Trading</p>
 						</div>
 					): (null)

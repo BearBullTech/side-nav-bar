@@ -1,6 +1,6 @@
 import React from 'react';
-import PopUp from './PopUp/PopUp.jsx';
-// import "../app.css";
+import PopUp from './PopUp.jsx';
+
 
 
 class MarketOrder extends React.Component {
@@ -76,9 +76,10 @@ class MarketOrder extends React.Component {
 	  		return (
 	  			<div>
 	  			<div> Not Enough Buying Power </div>
-	  			<p>You don’t have enough buying power to buy {numOfShare} share of {companies[0].company}. </p>
-	  			<p>Please deposit ${(total * 1.05).toFixed(2)} to purchase {numOfShare} share at market price (5% collar included).</p>
-	  			<p>Market orders on Robinhood are placed as limit orders up to 5% above the market price in order to protect customers from spending more than they have in their Robinhood account. If you want to use your full buying power of $0.00 you can place a limit order instead.</p>
+	  			<div>You don’t have enough buying power to buy {numOfShare} share of {companies[0].company}. </div><br></br>
+	  			<div>Please deposit ${(total * 1.05).toFixed(2)} to purchase {numOfShare} share at market price (5% collar included).</div><br></br>
+	  			<div>Market orders on Robinhood are placed as limit orders up to 5% above the market price in order to protect customers from spending more than they have in their Robinhood account. If you want to use your full buying power of $0.00 you can place a limit order instead.</div>
+	  			<br></br>
 	  			<button className="button"> Deposit ${parseFloat((total * 1.05).toFixed(2)) || "0.00"}</button>
 	  			<button className="backButton" onClick={this.closeMenu}> Back </button>
 	  			</div>
@@ -90,7 +91,7 @@ class MarketOrder extends React.Component {
 
 
 	render() {
-	const {companies} = this.props;
+	const {view, companies} = this.props;
 		return(
 			<div>
 			<div>
@@ -99,10 +100,10 @@ class MarketOrder extends React.Component {
 					<div className="menuBody">
 						<label>
 						<div> Shares </div>
-							<input className="orderInput" min="0" placeholder="0" step="1" name="quantity" value={this.state.inputVal} onChange={this.onChangeHandler.bind(this)}></input>
+							<input className="orderInput" min="0" placeholder="0" step="1" name="quantity" onChange={this.onChangeHandler.bind(this)}></input>
 						</label>
 						<label>
-							<PopUp companies={companies}/>
+							<PopUp view={view} companies={companies}/>
 						<span> ${companies[0].currentDay[0].currentPrice} </span>
 						</label>
 						<label className="estimatedCost">

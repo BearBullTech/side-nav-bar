@@ -1,5 +1,5 @@
 import React from 'react';
-import "../../app.css";
+import "../app.css";
 
 
 class PopUp extends React.Component {
@@ -7,7 +7,7 @@ class PopUp extends React.Component {
 		super(props);
 		this.state = {
 			showMenu: false,
-			view: 'market'
+
 		}
 	this.showMenu = this.showMenu.bind(this);
 	this.closeMenu = this.closeMenu.bind(this);
@@ -30,12 +30,13 @@ class PopUp extends React.Component {
 	}
 
 	render() {
-		const {companies} = this.props;
+		const {view, companies} = this.props;
 
+		console.log('this is view from popup', view)
 		return (
 			<div>
 				<div className="popup" onClick={this.showMenu}>
-				<div className="clickable"> Market Price </div>
+				<div className="clickable"> {view} Price</div>
 				</div>
 
 				{this.state.showMenu ? (

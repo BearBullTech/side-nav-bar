@@ -48,13 +48,9 @@ label {
 
 label input {
 	text-align: right;
-	/*background-color: #1B1B1D;*/
-	/*border-color: #1B1B1D;*/
   border-color: transparent;
   background-color: #F3F3F3;
-  /*background-color: #171718;*/
 	border-radius: 4px;
-	/*color: #fff;*/
   color: black;
 }
 
@@ -190,4 +186,12 @@ button:focus {
     margin-left: 14px;
     width: 227.77px;
     margin-top: 10px;
+}
+
+.selectInput {
+  text-align: right;
+  border-color: transparent;
+  background-color: #F3F3F3;
+  border-radius: 4px;
+  color: black;
 }
