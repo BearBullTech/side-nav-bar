@@ -52,3 +52,11 @@ p:hover {
   color: #21ce99;
 }
 
+div.dropdownfooter {
+  color: #21ce99;
+  margin-bottom: 20px;
+}
+
+.menu-bar:hover {
+  color: #21ce99;
+}

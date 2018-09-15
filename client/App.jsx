@@ -8,8 +8,8 @@ import StopLossOrder from './components/StopLossOrder.jsx';
 import StopLimitOrder from './components/StopLimitOrder.jsx';
 import defaultData from './defaultData.js'
 import $ from 'jquery';
-import "./app.css";
-// import "./closedMarket.css";
+// import "./app.css";
+import "./closedMarket.css";
 
 //get rid of all comments
 class App extends React.Component {
