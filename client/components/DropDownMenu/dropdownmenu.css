@@ -33,18 +33,30 @@
 }
 
 .heading {
-    font-size: 16px;
-    font-weight: 400;
-    letter-spacing: 0.25px;
-    line-height: 19px;
-    font-size: 16px;
-    align-items: center;
-    border-bottom: 1px solid;
-    /*border-bottom-color: black;*/
-    border-bottom-color: lightgrey;
-    display: flex;
-    height: 52px;
-    margin: 0 -24px;
-    padding: 4px 24px 0;
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: 0.25px;
+  line-height: 19px;
+  font-size: 16px;
+  align-items: center;
+  border-bottom: 1px solid;
+  /*border-bottom-color: black;*/
+  border-bottom-color: lightgrey;
+  display: flex;
+  height: 52px;
+  margin: 0 -24px;
+  padding: 4px 24px 0;
 }
 
+p:hover {
+  color: #21ce99;
+}
+
+div.dropdownfooter {
+  color: #21ce99;
+  margin-bottom: 20px;
+}
+
+.menu-bar:hover {
+  color: #21ce99;
+}

@@ -45,11 +45,11 @@ class DropDownMenu extends React.Component {
 							this.dropdownMenu = element;
 						}}>
 						<header className="heading"> Order Type </header>
-						<p onClick={() => {handleClick('market'); this.closeMenu(false)}}> Market Order </p>
-						<p onClick={() => {handleClick('limit'); this.closeMenu(false)}}> Limit Order </p>
-						<p onClick={() => {handleClick('stoplimit'); this.closeMenu(false)}}> Stop Limit Order </p>
-						<p onClick={() => {handleClick('stoploss'); this.closeMenu(false)}}> Stop Loss Order </p>
-						<p> Get Free Options<br></br>Trading</p>
+						<p className="menuP" onClick={() => {handleClick('Market'); this.closeMenu(false)}}> Market Order </p>
+						<p className="menuP" onClick={() => {handleClick('Limit'); this.closeMenu(false)}}> Limit Order </p>
+						<p className="menuP" onClick={() => {handleClick('Stop'); this.closeMenu(false)}}> Stop Loss Order </p>
+						<p className="menuP" onClick={() => {handleClick(' Limit'); this.closeMenu(false)}}> Stop Limit Order </p>
+						<div className="dropdownfooter"> Get Free Options<br></br>Trading</div>
 						</div>
 					): (null)
 				}
