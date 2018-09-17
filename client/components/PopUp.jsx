@@ -1,7 +1,6 @@
 import React from 'react';
 import "../app.css";
 
-
 class PopUp extends React.Component {
 	constructor(props) {
 		super(props);
@@ -31,8 +30,6 @@ class PopUp extends React.Component {
 
 	render() {
 		const {view, companies} = this.props;
-
-		console.log('this is view from popup', view)
 		return (
 			<div>
 				<div className="popup" onClick={this.showMenu}>

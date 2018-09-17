@@ -1,6 +1,7 @@
 body {
 	/*background-color: black;*/
 }
+
 .content-sidebar {
 	/*color: #fff;*/
 	/*color: #171718;*/
@@ -92,20 +93,20 @@ label input {
 }
 
 .watchList {
-    color: #21ce99;
-    font-family: DIN Pro,-apple-system,BlinkMacSystemFont,sans-serif;
-    padding: 0 24px;
-    width: 227px;
-    background: none;
-    border-radius: 4px;
-    border-color: #21ce99;
-    height: 48px;
-    margin-top: 24px;
-    position: fixed;
-    margin: 24px 24px;
-    right: 100px;
-    z-index: -1; 
-    margin-top: 60px;
+  color: #21ce99;
+  font-family: DIN Pro,-apple-system,BlinkMacSystemFont,sans-serif;
+  padding: 0 24px;
+  width: 227px;
+  background: none;
+  border-radius: 4px;
+  border-color: #21ce99;
+  height: 48px;
+  margin-top: 24px;
+  position: fixed;
+  margin: 24px 24px;
+  right: 100px;
+  z-index: -1; 
+  margin-top: 60px;
 }
 
 button:focus {
@@ -179,13 +180,13 @@ button:focus {
 }
 
 .backButton {
-    font-weight: 500;
-    text-decoration: none;
-    color: #21ce99;
-    border: transparent;
-    margin-left: 14px;
-    width: 227.77px;
-    margin-top: 10px;
+  font-weight: 500;
+  text-decoration: none;
+  color: #21ce99;
+  border: transparent;
+  margin-left: 14px;
+  width: 227.77px;
+  margin-top: 10px;
 }
 
 .selectInput {
