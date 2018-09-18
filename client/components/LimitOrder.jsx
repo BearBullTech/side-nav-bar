@@ -3,7 +3,7 @@ import PopUp from './PopUp.jsx';
 
 const LimitOrder = (props) => {
 
-	const {view, companies, renderWatch, showMenu, changeButton, total, onChangeHandler} = props;
+	const {view, companies, renderWatch, showMenu, changeButton, total, onChangeHandler, currentPrice} = props;
 		return(
 			<div>
 				<div>
@@ -12,7 +12,7 @@ const LimitOrder = (props) => {
 						<div className="menuBody">
 							<label>
 								<PopUp view={view} companies={companies}/>
-								<input className="selectInput" value={"$" + companies[0].currentDay[0].currentPrice}></input>
+								<input className="selectInput" value={"$" + currentPrice}></input>
 							</label>
 
 							<label>

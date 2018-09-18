@@ -1,7 +1,6 @@
 import React from 'react';
 import PopUp from './PopUp.jsx';
 
-
 const StopLossOrder = (props) => {
 
 	const {view, companies, renderWatch, showMenu, changeButton, total, onChangeHandler} = props;

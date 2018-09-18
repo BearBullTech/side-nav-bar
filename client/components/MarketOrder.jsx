@@ -3,7 +3,7 @@ import PopUp from './PopUp.jsx';
 
 const MarketOrder = (props) => {
 	
-	const {view, companies, renderWatch, showMenu, changeButton, total, onChangeHandler} = props;
+	const {view, companies, renderWatch, showMenu, changeButton, total, onChangeHandler, currentPrice} = props;
 		return (
 			<div>
 			<div>
@@ -16,7 +16,7 @@ const MarketOrder = (props) => {
 						</label>
 						<label>
 							<PopUp view={view} companies={companies}/>
-						<span> ${companies[0].currentDay[0].currentPrice} </span>
+						<span> ${currentPrice} </span>
 						</label>
 						<label className="estimatedCost">
 							<div>Estimated Cost</div>
