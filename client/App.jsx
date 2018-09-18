@@ -14,16 +14,16 @@ import "./closedMarket.css"
 
 class App extends React.Component {
 	constructor(props) {
-		super(props);
-		this.state = {
-			view: 'Market',
-			companyData: defaultData,
+    super(props);
+    this.state = {
+      view: 'Market',
+      companyData: defaultData,
       watchList: 'add',
       showMenu: false,
       total: 0,
       currentPrice: defaultData[0].currentDay[0].currentPrice,
       marketOpen: true
-		}
+    }
     this.changeView = this.changeView.bind(this);
     this.changeWatch = this.changeWatch.bind(this);
     this.renderWatch = this.renderWatch.bind(this);
@@ -37,13 +37,8 @@ class App extends React.Component {
     axios.get('/stocks/sideBar' + window.location.pathname)
       .then(res => {
         const data = res.data;
-        const time = moment();
-        const isOpen = moment('9:00', 'hh:mm');
-        const isClosed = moment('15:00', 'hh:mm');
-        const marketOpen = (time.isBetween(isOpen, isClosed));
         this.setState({
           companyData: data,
-          marketOpen
         });
         this.changeCurrentPrice()
       })
@@ -54,15 +49,22 @@ class App extends React.Component {
   }
 
   changeCurrentPrice() {
-    const {companyData} = this.state;
+    const {companyData, marketOpen} = this.state;
     const variable = this;
     function theLoop(i) {
       setTimeout(function() {
-        variable.setState({currentPrice: companyData[0].currentDay[i].currentPrice})
+        const time = moment();
+        const isOpen = moment('9:00', 'hh:mm');
+        const isClosed = moment('18:00', 'hh:mm');
+        const marketOpen = (time.isBetween(isOpen, isClosed));
+        variable.setState({
+          currentPrice: companyData[0].currentDay[i].currentPrice,
+          marketOpen
+        })
         if (++i) {
           theLoop(i);
         }
-      }, 600000);
+      }, 60000);
     };
     theLoop(0);
   }
