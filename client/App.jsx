@@ -150,8 +150,8 @@ class App extends React.Component {
 
 
   showMenu(event) {
-  event.preventDefault();
-  this.setState({showMenu: true});
+    event.preventDefault();
+    this.setState({showMenu: true});
   }
 
   closeMenu(event) {
@@ -161,8 +161,8 @@ class App extends React.Component {
   }
 
   changeButton() {
-    const {showMenu, total, companyData, marketOpen} = this.state;
-    const numOfShare = total/companyData[0].currentDay[0].currentPrice;
+    const {showMenu, total, companyData, currentPrice, marketOpen} = this.state;
+    const numOfShare = Math.floor(total/currentPrice);
     const className = marketOpen ? 'Opened' : 'Closed';
     if (total === 0 || NaN) {
       if (showMenu === false) {

@@ -6,7 +6,6 @@ class PopUp extends React.Component {
 		super(props);
 		this.state = {
 			showMenu: false,
-
 		}
 	this.showMenu = this.showMenu.bind(this);
 	this.closeMenu = this.closeMenu.bind(this);
@@ -14,7 +13,6 @@ class PopUp extends React.Component {
 
 	showMenu(event) {
 		event.preventDefault();
-
 		this.setState({ showMenu: true}, () => {
 			document.addEventListener('click', this.closeMenu);
 		});
@@ -34,9 +32,8 @@ class PopUp extends React.Component {
 		return (
 			<div>
 				<div className={"popup"+className} onClick={this.showMenu}>
-				<div className={"clickable"+className}> {view} Price</div>
+					<div className={"clickable"+className}> {view} Price</div>
 				</div>
-
 				{this.state.showMenu ? (
 					<div
 						className={"popup-menu"+className}
@@ -58,11 +55,11 @@ class PopUp extends React.Component {
 							<span> ${currentPrice} x 400 </span>
 						</label>
 						<div className={"popupFooter"+className}> This is consolidated, real-time market information. </div>
-						</div>
+					</div>
 					): (null)
 				}
-				</div>
-			);
+			</div>
+		);
 	}
 }
 

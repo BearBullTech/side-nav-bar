@@ -47,8 +47,7 @@ const StopLossOrder = (props) => {
 									<option value="1">Good Till Cancel </option>
 									</select>
 							</label>
-
-
+							
 							<label className={"estimatedCost"+className}>
 								<div>Estimated Cost</div>
 								<span> ${parseFloat((total).toFixed(2)) || "0.00"} </span>
@@ -58,7 +57,7 @@ const StopLossOrder = (props) => {
 					</div>
 					<div className={"footerclass"+className}> $0.00 Buying Power Available </div>
 				</div>
-				<div>
+			<div>
 				{renderWatch()}
 				</div>
 			</div>

@@ -21,7 +21,7 @@ const MarketOrder = (props) => {
 						<header className={"header-class"+className}> Buy {companies[0].company}</header>
 						<div className={"menuBody"+className}>
 							<label>
-							<div> Shares </div>
+								<div> Shares </div>
 								<input 
 									className={"orderInput"+className + " " + "input"+className} 
 									min="0" 
@@ -31,6 +31,7 @@ const MarketOrder = (props) => {
 									onChange={onChangeHandler}>
 								</input>
 							</label>
+
 							<label>
 								<PopUp
 									view={view}
@@ -39,6 +40,7 @@ const MarketOrder = (props) => {
 									currentPrice={currentPrice}/>
 							<span> ${currentPrice} </span>
 							</label>
+
 							<label className={"estimatedCost"+className}>
 								<div>Estimated Cost</div>
 								<span> ${parseFloat((total).toFixed(2)) || "0.00"} </span>
@@ -48,9 +50,9 @@ const MarketOrder = (props) => {
 					</div>
 					<div className={"footerclass"+className}> $0.00 Buying Power Available </div>
 				</div>
-			<div>
-				{renderWatch()}
-			</div>
+				<div>
+					{renderWatch()}
+				</div>
 			</div>
 		)
 	
