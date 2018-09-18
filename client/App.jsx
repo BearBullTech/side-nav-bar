@@ -9,8 +9,8 @@ import StopLimitOrder from './components/StopLimitOrder.jsx';
 import defaultData from './defaultData.js';
 import axios from 'axios';
 import moment from 'moment';
-import "./app.css";
-import "./closedMarket.css"
+import "./openMarket.css";
+import "./closedMarket.css";
 
 class App extends React.Component {
 	constructor(props) {

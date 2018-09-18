@@ -1,5 +1,6 @@
 import React from 'react';
-import "../app.css";
+import "../openMarket.css";
+import "../closedMarket.css";
 
 class PopUp extends React.Component {
 	constructor(props) {
