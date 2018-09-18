@@ -13,9 +13,15 @@ module.exports = {
   extends: "airbnb",
   env: {
     "browser": true,
-    "node": true
-  }, 
+    "node": true,
+    "jest": true,
+  },
   rules: {
-    "no-console": 0
-  }
+    "no-console": 0,
+    "import/extensions": ["error", "never", { "jsx": "always" }],
+    "jsx-a11y/anchor-is-valid": [ "error", {
+      "components": [ "Link" ],
+      "specialLink": [ "to" ],
+    }],
+  },
 };

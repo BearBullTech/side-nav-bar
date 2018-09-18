@@ -8,8 +8,8 @@ import StopLossOrder from './components/StopLossOrder.jsx';
 import StopLimitOrder from './components/StopLimitOrder.jsx';
 import defaultData from './defaultData.js';
 import axios from 'axios';
-// import "./app.css";
-import "./closedMarket.css";
+import "./app.css";
+// import "./closedMarket.css";
 
 class App extends React.Component {
 	constructor(props) {
@@ -19,7 +19,8 @@ class App extends React.Component {
 			companyData: defaultData,
       watchList: 'add',
       showMenu: false,
-      total: 0
+      total: 0,
+      currentPrice: defaultData[0].currentDay[0].currentPrice
 		}
     this.changeView = this.changeView.bind(this);
     this.changeWatch = this.changeWatch.bind(this);
@@ -28,7 +29,6 @@ class App extends React.Component {
     this.closeMenu = this.closeMenu.bind(this);
     this.changeButton = this.changeButton.bind(this);
     this.onChangeHandler = this.onChangeHandler.bind(this);
-
   }
 
   componentDidMount() {
@@ -36,15 +36,33 @@ class App extends React.Component {
       .then(res => {
         const data = res.data;
         this.setState({companyData: data});
+        this.changeCurrentPrice()
       })
       .catch((err) => {
         console.log(err);
       })
   }
 
-  onChangeHandler(e) {
+  changeCurrentPrice() {
     const {companyData} = this.state;
-    var results = eval(companyData[0].currentDay[0].currentPrice * parseFloat(e.target.value));
+    const appScroll = this;
+    function theLoop(i) {
+      setTimeout(function() {
+        console.log('i before if statment', i)
+        appScroll.setState({currentPrice: companyData[0].currentDay[i].currentPrice})
+        if (++i) {
+          console.log('after if statement', i)
+          theLoop(i);
+        }
+      }, 3);
+    };
+    theLoop(0);
+  }
+
+
+  onChangeHandler(e) {
+    const {companyData, currentPrice} = this.state;
+    var results = eval(currentPrice * parseFloat(e.target.value));
     this.setState({
       total: results
     })
@@ -72,16 +90,48 @@ class App extends React.Component {
   }
 
   renderView() {
-    const {view, companyData, showMenu, total} = this.state;
-
+    const {view, companyData, showMenu, total, currentPrice} = this.state;
     if (view === 'Market') {
-      return <MarketOrder view={view} companies={companyData} renderWatch={this.renderWatch} changeButton={this.changeButton} showMenu={showMenu} total={total} onChangeHandler={this.onChangeHandler}/>
+      return <MarketOrder 
+        view={view} 
+        companies={companyData} 
+        renderWatch={this.renderWatch} 
+        changeButton={this.changeButton} 
+        showMenu={showMenu} total={total} 
+        onChangeHandler={this.onChangeHandler} 
+        currentPrice={currentPrice}
+      />
     } else if (view === 'Limit') {
-      return <LimitOrder view={view} companies={companyData} renderWatch={this.renderWatch} changeButton={this.changeButton} showMenu={showMenu} total={total} onChangeHandler={this.onChangeHandler}/>
+      return <LimitOrder 
+        view={view} 
+        companies={companyData} 
+        renderWatch={this.renderWatch} 
+        changeButton={this.changeButton} 
+        showMenu={showMenu} total={total} 
+        onChangeHandler={this.onChangeHandler}
+        currentPrice={currentPrice}
+      />
     } else if(view ==='Stop') {
-      return <StopLossOrder view={view} companies={companyData} renderWatch={this.renderWatch} changeButton={this.changeButton} showMenu={showMenu} total={total} onChangeHandler={this.onChangeHandler}/>
+      return <StopLossOrder 
+        view={view} 
+        companies={companyData} 
+        renderWatch={this.renderWatch} 
+        changeButton={this.changeButton} 
+        showMenu={showMenu} total={total} 
+        onChangeHandler={this.onChangeHandler}
+        currentPrice={currentPrice}
+      />
     } else {
-      return <StopLimitOrder view={view} companies={companyData} renderWatch={this.renderWatch} changeButton={this.changeButton} showMenu={showMenu} total={total} onChangeHandler={this.onChangeHandler}/>
+      return <StopLimitOrder 
+        view={view} 
+        companies={companyData} 
+        renderWatch={this.renderWatch} 
+        changeButton={this.changeButton} 
+        showMenu={showMenu} 
+        total={total} 
+        onChangeHandler={this.onChangeHandler}
+        currentPrice={currentPrice}
+      />
     }
   }
 
@@ -168,7 +218,9 @@ class App extends React.Component {
             <div> Not Enough Buying Power </div>
             <div>You don’t have enough buying power to buy {numOfShare} share of {companyData[0].company}. </div><br></br>
             <div>Please deposit ${(total * 1.05).toFixed(2)} to purchase {numOfShare} share at market price (5% collar included).</div><br></br>
-            <div>Market orders on Robinhood are placed as limit orders up to 5% above the market price in order to protect customers from spending more than they have in their Robinhood account. If you want to use your full buying power of $0.00 you can place a limit order instead.</div>
+            <div>Market orders on Robinhood are placed as limit orders up to 5% above the market price in order to protect customers 
+                 from spending more than they have in their Robinhood account. 
+                 If you want to use your full buying power of $0.00 you can place a limit order instead.</div>
             <br></br>
             <button className="button"> Deposit ${parseFloat((total * 1.05).toFixed(2)) || "0.00"}</button>
             <button className="backButton" onClick={this.closeMenu}> Back </button>
