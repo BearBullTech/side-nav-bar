@@ -1,10 +1,4 @@
-body {
-	/*background-color: black;*/
-}
-
-.content-sidebar {
-	/*color: #fff;*/
-	/*color: #171718;*/
+.content-sidebarOpened {
 	font-size: 13px;
 	font-family: DIN Pro,-apple-system,BlinkMacSystemFont,sans-serif;
 	letter-spacing: 0.25px;
@@ -12,30 +6,28 @@ body {
 	position: fixed;
   flex: 150px 0 0;
   right: 100px;
-  /*background-color: #252527;*/
   padding: 20px 10px 40px;
   width: 255.77778px;
   box-shadow: 0 0 4px 1px rgba(0,0,0,.01), 0 3px 24px rgba(48,51,51,.09);
   flex-direction: column;
 }
 
-.header-class {
+.header-classOpened {
   align-items: center;
   justify-content: space-between;
   padding: 0px 12px 0;
   border-bottom: 1px solid;
-  /*border-bottom-color: black;*/
   border-bottom-color: lightgrey;
   margin: 0 -10px;
   height: 32px;
 }
 
-.orderInput {
+.orderInputOpened {
   width: 76px;
   height: 30px;
   
 }
-.menuBody {
+.menuBodyOpened {
 	padding-top: 12px;
 	padding-bottom: 12px;
 }
@@ -47,7 +39,7 @@ label {
 	align-items: center;
 }
 
-label input {
+label .inputOpened {
 	text-align: right;
   border-color: transparent;
   background-color: #F3F3F3;
@@ -55,20 +47,19 @@ label input {
   color: black;
 }
 
-.estimatedCost {
+.estimatedCostOpened {
 	border-top: 1px solid;
-	/*border-top-color: black;*/
   border-top-color: lightgrey;
 	justify-content: space-between;
 }
 
-.checkOut {
+.checkOutOpened {
   padding: 12px 24px;
   margin: 0 -12px;
 
 }
 
-.button {
+.buttonOpened {
 	background-color: #21ce99;
 	border-color: #21ce99;
 	border-radius: 4px;
@@ -82,17 +73,16 @@ label input {
   margin: 0 14px;
 }
 
-.footerclass {
+.footerclassOpened {
   margin: 0 -10px;
   border-top: 1px solid;
-  /*border-top-color: black;*/
   border-top-color: lightgrey;
   text-align: center;
   padding-top: 10px;
   margin-bottom: -20px;
 }
 
-.watchList {
+.watchListOpened {
   color: #21ce99;
   font-family: DIN Pro,-apple-system,BlinkMacSystemFont,sans-serif;
   padding: 0 24px;
@@ -113,16 +103,13 @@ button:focus {
 	outline:0;
 }
 
-.popup-menu {
+.popup-menuOpened {
   font-weight: 500;
   letter-spacing: 0.25px;
   line-height: 19px;
-  /* color: #fff; */
   color: #171718;
-  /* background-color: #252527; */
   background-color: white;
   position: absolute;
-  /* right: -30px; */
   padding: 0 24px;
   top: 160.5px;
   left: -145px;
@@ -132,14 +119,11 @@ button:focus {
   box-shadow: rgba(0,0,0,0.11765) 0px 1px 6px, rgba(0,0,0,0.11765) 0px 1px 4px;
   }
 
-.popupHeader {
+.popupHeaderOpened {
   text-align: left;
   align-items: center;
   justify-content: space-between;
   padding: 0px 12px 12px;
-/*  border-bottom: 1px solid;
-   border-bottom-color: black; 
-  border-bottom-color: lightgrey;*/
   margin: 20px -24px 20px -24px;
   height: 66px;
   font-size: 16px;
@@ -148,10 +132,9 @@ button:focus {
   line-height: 22px;
 }
 
-.popupFooter {
+.popupFooterOpened {
   margin: 0 -10px;
   border-top: 1px solid;
-  /*border-top-color: black;*/
   border-top-color: lightgrey;
   text-align: left;
   padding-top: 10px;
@@ -159,13 +142,11 @@ button:focus {
   color: lightgrey;
 }
 
-.slideDown{
+.slideDownOpened {
   font-weight: 500;
   letter-spacing: 0.25px;
   line-height: 19px;
-  /*color: #fff;*/
   color: #171718;
-  /*background-color: #252527;*/
   background-color: white;
   right: -30px;
   padding: 0 24px;
@@ -173,13 +154,13 @@ button:focus {
   margin: 0 -24px;
 }
 
-.clickable {
+.clickableOpened {
   font-weight: 500;
   text-decoration: none;
   color: #21ce99;
 }
 
-.backButton {
+.backButtonOpened {
   font-weight: 500;
   text-decoration: none;
   color: #21ce99;
@@ -189,7 +170,7 @@ button:focus {
   margin-top: 10px;
 }
 
-.selectInput {
+.selectInputOpened {
   text-align: right;
   border-color: transparent;
   background-color: #F3F3F3;

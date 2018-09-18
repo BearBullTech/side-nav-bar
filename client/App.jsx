@@ -8,20 +8,22 @@ import StopLossOrder from './components/StopLossOrder.jsx';
 import StopLimitOrder from './components/StopLimitOrder.jsx';
 import defaultData from './defaultData.js';
 import axios from 'axios';
-import "./app.css";
-// import "./closedMarket.css";
+import moment from 'moment';
+import "./openMarket.css";
+import "./closedMarket.css";
 
 class App extends React.Component {
 	constructor(props) {
-		super(props);
-		this.state = {
-			view: 'Market',
-			companyData: defaultData,
+    super(props);
+    this.state = {
+      view: 'Market',
+      companyData: defaultData,
       watchList: 'add',
       showMenu: false,
       total: 0,
-      currentPrice: defaultData[0].currentDay[0].currentPrice
-		}
+      currentPrice: defaultData[0].currentDay[0].currentPrice,
+      marketOpen: true
+    }
     this.changeView = this.changeView.bind(this);
     this.changeWatch = this.changeWatch.bind(this);
     this.renderWatch = this.renderWatch.bind(this);
@@ -35,26 +37,34 @@ class App extends React.Component {
     axios.get('/stocks/sideBar' + window.location.pathname)
       .then(res => {
         const data = res.data;
-        this.setState({companyData: data});
+        this.setState({
+          companyData: data,
+        });
         this.changeCurrentPrice()
       })
       .catch((err) => {
         console.log(err);
       })
+
   }
 
   changeCurrentPrice() {
-    const {companyData} = this.state;
-    const appScroll = this;
+    const {companyData, marketOpen} = this.state;
+    const variable = this;
     function theLoop(i) {
       setTimeout(function() {
-        console.log('i before if statment', i)
-        appScroll.setState({currentPrice: companyData[0].currentDay[i].currentPrice})
+        const time = moment();
+        const isOpen = moment('9:00', 'hh:mm');
+        const isClosed = moment('18:00', 'hh:mm');
+        const marketOpen = (time.isBetween(isOpen, isClosed));
+        variable.setState({
+          currentPrice: companyData[0].currentDay[i].currentPrice,
+          marketOpen
+        })
         if (++i) {
-          console.log('after if statement', i)
           theLoop(i);
         }
-      }, 3);
+      }, 60000);
     };
     theLoop(0);
   }
@@ -81,16 +91,17 @@ class App extends React.Component {
   }
 
   renderWatch() {
-    const {watchList} = this.state;
+    const {watchList, marketOpen} = this.state;
+    const className = marketOpen ? 'Opened' : 'Closed';
     if (watchList === 'add') {
-      return <button className="watchList" onClick={()=>{this.changeWatch('remove')}}> Add to Watchlist </button>
+      return <button className={"watchList"+className} onClick={()=>{this.changeWatch('remove')}}> Add to Watchlist </button>
     } else {
-      return <button className="watchList" onClick={()=>{this.changeWatch('add')}}> Remove from Watchlist </button>
+      return <button className={"watchList"+className} onClick={()=>{this.changeWatch('add')}}> Remove from Watchlist </button>
     }
   }
 
   renderView() {
-    const {view, companyData, showMenu, total, currentPrice} = this.state;
+    const {view, companyData, showMenu, total, currentPrice, marketOpen} = this.state;
     if (view === 'Market') {
       return <MarketOrder 
         view={view} 
@@ -100,6 +111,7 @@ class App extends React.Component {
         showMenu={showMenu} total={total} 
         onChangeHandler={this.onChangeHandler} 
         currentPrice={currentPrice}
+        marketOpen={marketOpen}
       />
     } else if (view === 'Limit') {
       return <LimitOrder 
@@ -110,6 +122,7 @@ class App extends React.Component {
         showMenu={showMenu} total={total} 
         onChangeHandler={this.onChangeHandler}
         currentPrice={currentPrice}
+        marketOpen={marketOpen}
       />
     } else if(view ==='Stop') {
       return <StopLossOrder 
@@ -120,6 +133,7 @@ class App extends React.Component {
         showMenu={showMenu} total={total} 
         onChangeHandler={this.onChangeHandler}
         currentPrice={currentPrice}
+        marketOpen={marketOpen}
       />
     } else {
       return <StopLimitOrder 
@@ -131,14 +145,15 @@ class App extends React.Component {
         total={total} 
         onChangeHandler={this.onChangeHandler}
         currentPrice={currentPrice}
+        marketOpen={marketOpen}
       />
     }
   }
 
 
   showMenu(event) {
-  event.preventDefault();
-  this.setState({showMenu: true});
+    event.preventDefault();
+    this.setState({showMenu: true});
   }
 
   closeMenu(event) {
@@ -148,16 +163,16 @@ class App extends React.Component {
   }
 
   changeButton() {
-    const {showMenu, total, companyData} = this.state;
-    const numOfShare = total/companyData[0].currentDay[0].currentPrice;
-
+    const {showMenu, total, companyData, currentPrice, marketOpen} = this.state;
+    const numOfShare = Math.floor(total/currentPrice);
+    const className = marketOpen ? 'Opened' : 'Closed';
     if (total === 0 || NaN) {
       if (showMenu === false) {
         return (
           <div>
-            <div className="checkOut">
+            <div className={"checkOut"+className}>
               {showMenu ? (<div
-              className="slideDown"
+              className={"slideDown"+className}
               ref={(element) => {
               this.slideDown = element;
               }}>
@@ -165,15 +180,15 @@ class App extends React.Component {
                 ): (null)
               }
             </div>
-            <button className="button" onClick={this.showMenu}> Review Order </button>
+            <button className={"button"+className} onClick={this.showMenu}> Review Order </button>
           </div>
           )
       } else {
         return (
           <div>
-            <div className="checkOut">
+            <div className={"checkOut"+className}>
               {showMenu ? (<div
-              className="slideDown"
+              className={"slideDown"+className}
               ref={(element) => {
               this.slideDown = element;
               }}>
@@ -183,16 +198,16 @@ class App extends React.Component {
             </div>
             <div> Error </div>
             <div> Please enter a valid number of shares.</div><br></br><br></br>
-            <button className="button" onClick={this.closeMenu}> Back </button>
+            <button className={"button"+className} onClick={this.closeMenu}> Back </button>
           </div>)
         } 
     } else {
       if (showMenu === false) {
         return (
           <div>
-            <div className="checkOut">
+            <div className={"checkOut"+className}>
               {showMenu ? (<div
-              className="slideDown"
+              className={"slideDown"+className}
               ref={(element) => {
               this.slideDown = element;
               }}>
@@ -200,14 +215,14 @@ class App extends React.Component {
                 ): (null)
               }
             </div>
-            <button className="button" onClick={this.showMenu}> Review Order </button>
+            <button className={"button"+className} onClick={this.showMenu}> Review Order </button>
           </div>)
       } else {
         return (
           <div>
-            <div className="checkOut">
+            <div className={"checkOut"+className}>
               {showMenu ? (<div
-              className="slideDown"
+              className={"slideDown"+className}
               ref={(element) => {
               this.slideDown = element;
               }}>
@@ -222,8 +237,8 @@ class App extends React.Component {
                  from spending more than they have in their Robinhood account. 
                  If you want to use your full buying power of $0.00 you can place a limit order instead.</div>
             <br></br>
-            <button className="button"> Deposit ${parseFloat((total * 1.05).toFixed(2)) || "0.00"}</button>
-            <button className="backButton" onClick={this.closeMenu}> Back </button>
+            <button className={"button"+className}> Deposit ${parseFloat((total * 1.05).toFixed(2)) || "0.00"}</button>
+            <button className={"backButton"+className} onClick={this.closeMenu}> Back </button>
           </div>
           )
       }       
@@ -232,10 +247,12 @@ class App extends React.Component {
   }
 
   render() {
+    const {marketOpen} = this.state;
+    const className = marketOpen ? 'Opened' : 'Closed';
     return (
       <div>
-        <div className="content-sidebar">
-          <DropDownMenu handleClick={this.changeView}/>
+        <div className={"content-sidebar"+className}>
+          <DropDownMenu handleClick={this.changeView} marketOpen={marketOpen}/>
           {this.renderView()}      
         </div>
       </div>

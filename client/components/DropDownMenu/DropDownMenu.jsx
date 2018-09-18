@@ -1,6 +1,6 @@
 import React from 'react';
 import "./dropdownmenu.css";
-// import "./closedmarketdropdown.css";
+
 
 
 class DropDownMenu extends React.Component {
@@ -31,25 +31,25 @@ class DropDownMenu extends React.Component {
 	}
 
 	render() {
-		const {handleClick} = this.props;
-
+		const {handleClick, marketOpen} = this.props;
+		const className = marketOpen ? 'isOpened' : 'isClosed';
 		return (
 			<div>
-				<div className="menu-bar" onClick={this.showMenu}>
+				<div className={'menu-bar'+ " " + className} onClick={this.showMenu}>
 				•••
 				</div>
 
 				{this.state.showMenu ? (<div
-						className="mega-menu-content"
+						className= {"mega-menu-content" + " " + className}
 						ref={(element) => {
 							this.dropdownMenu = element;
 						}}>
-						<header className="heading"> Order Type </header>
-						<p className="menuP" onClick={() => {handleClick('Market'); this.closeMenu(false)}}> Market Order </p>
-						<p className="menuP" onClick={() => {handleClick('Limit'); this.closeMenu(false)}}> Limit Order </p>
-						<p className="menuP" onClick={() => {handleClick('Stop'); this.closeMenu(false)}}> Stop Loss Order </p>
-						<p className="menuP" onClick={() => {handleClick(' Limit'); this.closeMenu(false)}}> Stop Limit Order </p>
-						<div className="dropdownfooter"> Get Free Options<br></br>Trading</div>
+						<header className={"heading" + " " + className}> Order Type </header>
+						<p className={"menuP" + " " + className} onClick={() => {handleClick('Market'); this.closeMenu(false)}}> Market Order </p>
+						<p className={"menuP" + " " + className} onClick={() => {handleClick('Limit'); this.closeMenu(false)}}> Limit Order </p>
+						<p className={"menuP" + " " + className} onClick={() => {handleClick('Stop'); this.closeMenu(false)}}> Stop Loss Order </p>
+						<p className={"menuP" + " " + className} onClick={() => {handleClick(' Limit'); this.closeMenu(false)}}> Stop Limit Order </p>
+						<div className="dropdownfooter" > Get Free Options<br></br>Trading</div>
 						</div>
 					): (null)
 				}

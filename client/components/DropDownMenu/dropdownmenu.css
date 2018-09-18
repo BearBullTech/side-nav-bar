@@ -4,10 +4,20 @@
   font-family: DIN Pro,-apple-system,BlinkMacSystemFont,sans-serif;
 }
 
+.isClosed {
+color: #fff;
+border-top-color: black;
+border-bottom-color: black;
+background-color: #252527;
+}
 
+.isOpened {
+color: black;
+border-bottom-color: lightgrey;
+background-color: white;
+
+}
 .menu-bar {
-  /*color: #fff;*/
-  color: #black;
   display: inline-block;
   float: right;
   width: 28px;
@@ -19,10 +29,6 @@
   font-weight: 500;
   letter-spacing: 0.25px;
   line-height: 19px;
-  /*color: #fff;*/
-  color: #171718;
-  /*background-color: #252527;*/
-  background-color: white;
   position: absolute;
   right: -30px;
   padding: 0 24px;
@@ -40,8 +46,7 @@
   font-size: 16px;
   align-items: center;
   border-bottom: 1px solid;
-  /*border-bottom-color: black;*/
-  border-bottom-color: lightgrey;
+  border-bottom-color: black;
   display: flex;
   height: 52px;
   margin: 0 -24px;

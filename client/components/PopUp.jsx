@@ -1,12 +1,12 @@
 import React from 'react';
-import "../app.css";
+import "../openMarket.css";
+import "../closedMarket.css";
 
 class PopUp extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
 			showMenu: false,
-
 		}
 	this.showMenu = this.showMenu.bind(this);
 	this.closeMenu = this.closeMenu.bind(this);
@@ -14,7 +14,6 @@ class PopUp extends React.Component {
 
 	showMenu(event) {
 		event.preventDefault();
-
 		this.setState({ showMenu: true}, () => {
 			document.addEventListener('click', this.closeMenu);
 		});
@@ -29,39 +28,39 @@ class PopUp extends React.Component {
 	}
 
 	render() {
-		const {view, companies} = this.props;
+		const {view, companies, marketOpen, currentPrice} = this.props;
+		const className = marketOpen ? 'Opened' : 'Closed';
 		return (
 			<div>
-				<div className="popup" onClick={this.showMenu}>
-				<div className="clickable"> {view} Price</div>
+				<div className={"popup"+className} onClick={this.showMenu}>
+					<div className={"clickable"+className}> {view} Price</div>
 				</div>
-
 				{this.state.showMenu ? (
 					<div
-						className="popup-menu"
+						className={"popup-menu"+className}
 						ref={(element) => {
 							this.dropdownMenu = element;
 						}}>
-						<header className="popupHeader"> The displayed price of ${companies[0].currentDay[0].currentPrice} is <br></br>
+						<header className={"popupHeader"+className}> The displayed price of ${currentPrice} is <br></br>
 						the NASDAQ real-time last sale price. </header>
-						<label className="estimatedCost">
+						<label className={"estimatedCost"+className}>
 							<div>Last Sale</div>
-							<span> ${companies[0].currentDay[0].currentPrice} x 400 </span>
+							<span> ${currentPrice} x 400 </span>
 						</label>
-						<label className="estimatedCost">
+						<label className={"estimatedCost"+className}>
 							<div>Bid</div>
-							<span> ${companies[0].currentDay[0].currentPrice} x 400 </span>
+							<span> ${currentPrice} x 400 </span>
 						</label>
-						<label className="estimatedCost">
+						<label className={"estimatedCost"+className}>
 							<div>Ask</div>
-							<span> ${companies[0].currentDay[0].currentPrice} x 400 </span>
+							<span> ${currentPrice} x 400 </span>
 						</label>
-						<div className="popupFooter"> This is consolidated, real-time market information. </div>
-						</div>
+						<div className={"popupFooter"+className}> This is consolidated, real-time market information. </div>
+					</div>
 					): (null)
 				}
-				</div>
-			);
+			</div>
+		);
 	}
 }
 
