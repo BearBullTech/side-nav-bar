@@ -1,8 +1,4 @@
-body {
-	background-color: #252527;
-}
-
-.content-sidebar {
+.content-sidebarClosed {
 	color: #fff;
 	font-size: 13px;
 	font-family: DIN Pro,-apple-system,BlinkMacSystemFont,sans-serif;
@@ -19,7 +15,7 @@ body {
   flex-direction: column;
 }
 
-.header-class {
+.header-classClosed {
   align-items: center;
   justify-content: space-between;
   padding: 0px 12px 0;
@@ -30,12 +26,12 @@ body {
   height: 32px;
 }
 
-.orderInput {
+.orderInputClosed {
   width: 76px;
   height: 30px;
   
 }
-.menuBody {
+.menuBodyClosed {
 	padding-top: 12px;
 	padding-bottom: 12px;
 }
@@ -47,7 +43,7 @@ label {
 	align-items: center;
 }
 
-label input {
+label .inputClosed {
 	text-align: right;
 	background-color: #1B1B1D;
 	border-color: #1B1B1D;
@@ -57,20 +53,20 @@ label input {
 
 }
 
-.estimatedCost {
+.estimatedCostClosed {
 	border-top: 1px solid;
 	border-top-color: black;
 
 	justify-content: space-between;
 }
 
-.checkOut {
+.checkOutClosed {
   padding: 12px 24px;
   margin: 0 -12px;
 
 }
 
-.button {
+.buttonClosed {
 	background-color: #21ce99;
 	border-color: #21ce99;
 	border-radius: 4px;
@@ -84,7 +80,7 @@ label input {
   margin: 0 14px;
 }
 
-.footerclass {
+.footerclassClosed {
   margin: 0 -10px;
   border-top: 1px solid;
   border-top-color: black;
@@ -94,7 +90,7 @@ label input {
   margin-bottom: -20px;
 }
 
-.watchList {
+.watchListClosed {
   color: #21ce99;
   font-family: DIN Pro,-apple-system,BlinkMacSystemFont,sans-serif;
   padding: 0 24px;
@@ -115,7 +111,7 @@ button:focus {
 	outline:0;
 }
 
-.popup-menu {
+.popup-menuClosed {
   font-weight: 500;
   letter-spacing: 0.25px;
   line-height: 19px;
@@ -133,14 +129,12 @@ button:focus {
   box-shadow: rgba(0,0,0,0.11765) 0px 1px 6px, rgba(0,0,0,0.11765) 0px 1px 4px;
   }
 
-.popupHeader {
+.popupHeaderClosed {
   text-align: left;
   align-items: center;
   justify-content: space-between;
   padding: 0px 12px 12px;
-  border-bottom: 1px solid;
-  border-bottom-color: black; 
-  border-bottom-color: lightgrey;
+
   margin: 20px -24px 20px -24px;
   height: 66px;
   font-size: 16px;
@@ -149,7 +143,7 @@ button:focus {
   line-height: 22px;
 }
 
-.popupFooter {
+.popupFooterClosed {
   margin: 0 -10px;
   border-top: 1px solid;
   border-top-color: black;
@@ -160,7 +154,7 @@ button:focus {
   color: lightgrey;
 }
 
-.slideDown{
+.slideDownClosed {
   font-weight: 500;
   letter-spacing: 0.25px;
   line-height: 19px;
@@ -174,13 +168,13 @@ button:focus {
   margin: 0 -24px;
 }
 
-.clickable {
+.clickableClosed {
   font-weight: 500;
   text-decoration: none;
   color: #21ce99;
 }
 
-.backButton {
+.backButtonClosed {
   font-weight: 500;
   text-decoration: none;
   color: #21ce99;
@@ -191,7 +185,7 @@ button:focus {
   background: none;
 }
 
-.selectInput {
+.selectInputClosed {
   text-align: right;
   border-color: transparent;
   background-color: #1B1B1D;
