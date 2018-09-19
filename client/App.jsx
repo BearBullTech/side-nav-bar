@@ -250,7 +250,7 @@ class App extends React.Component {
     const {marketOpen} = this.state;
     const className = marketOpen ? 'Opened' : 'Closed';
     return (
-      <div className={"component-container"+className}>
+      <div className={"component-container"+className} id="navigationBar">
         <div className={"content-sidebar"+className}>
           <DropDownMenu handleClick={this.changeView} marketOpen={marketOpen}/>
           {this.renderView()}      
