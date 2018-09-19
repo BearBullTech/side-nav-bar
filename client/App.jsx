@@ -64,7 +64,7 @@ class App extends React.Component {
         if (++i) {
           theLoop(i);
         }
-      }, 60000);
+      }, 1000);
     };
     theLoop(0);
   }
@@ -250,7 +250,7 @@ class App extends React.Component {
     const {marketOpen} = this.state;
     const className = marketOpen ? 'Opened' : 'Closed';
     return (
-      <div>
+      <div className={"component-container"+className}>
         <div className={"content-sidebar"+className}>
           <DropDownMenu handleClick={this.changeView} marketOpen={marketOpen}/>
           {this.renderView()}      
