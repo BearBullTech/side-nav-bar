@@ -11,7 +11,8 @@ const StopLossOrder = (props) => {
 		total,
 		onChangeHandler,
 		marketOpen,
-		currentPrice
+		currentPrice,
+		priceIsUp
 	} = props;
 	const className = marketOpen ? 'Opened' : 'Closed';
 		return(
@@ -25,7 +26,8 @@ const StopLossOrder = (props) => {
 									view={view}
 									companies={companies}
 									marketOpen={marketOpen}
-									currentPrice={currentPrice}/>
+									currentPrice={currentPrice}
+									priceIsUp={priceIsUp}/>
 								<input className={"orderInput"+className + " " + "input"+className} placeholder="$0.00"></input>
 							</label>
 

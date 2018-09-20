@@ -28,12 +28,13 @@ class PopUp extends React.Component {
 	}
 
 	render() {
-		const {view, companies, marketOpen, currentPrice} = this.props;
+		const {view, companies, marketOpen, currentPrice, priceIsUp} = this.props;
 		const className = marketOpen ? 'Opened' : 'Closed';
+		const price = priceIsUp ? 'Up' : 'Down';
 		return (
 			<div>
 				<div className={"popup"+className} onClick={this.showMenu}>
-					<div className={"clickable"+className}> {view} Price</div>
+					<div className={"clickable"+className + " popUpPrice"+price}> {view} Price</div>
 				</div>
 				{this.state.showMenu ? (
 					<div
