@@ -4,7 +4,7 @@ const defaultData =[
 	currentDay : [
 		{
 			"currentTime" : "09:00am",
-			"currentPrice" : 341.32
+			"currentPrice" : 94.19
 		},
 		{
 			"currentTime" : "09:10am",
