@@ -200,3 +200,29 @@ button:focus {
   border-radius: 4px;
   color: #fff;
 }
+  
+.buttonPriceUp {
+  background-color: #21ce99;
+}
+
+.buttonPriceDown {
+  background-color: #DD4D2D;
+}
+
+.watchPriceUp {
+  border-color: #21ce99;
+  color: #21ce99;
+}
+
+.watchPriceDown {
+  border-color: #DD4D2D;
+  color: #DD4D2D;
+}
+
+.popUpPriceUp {
+  color: #21ce99;
+}
+
+.popUpPriceDown {
+  color: #DD4D2D;
+}

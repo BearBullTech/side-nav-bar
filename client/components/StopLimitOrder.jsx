@@ -11,7 +11,8 @@ const StopLimitOrder = (props) => {
 		total,
 		onChangeHandler,
 		currentPrice,
-		marketOpen
+		marketOpen,
+		priceIsUp
 	} = props;
 	const className= marketOpen ? 'Opened' : 'Closed';
 		return(
@@ -30,7 +31,8 @@ const StopLimitOrder = (props) => {
 									view={view}
 									companies={companies}
 									marketOpen={marketOpen}
-									currentPrice={currentPrice}/>
+									currentPrice={currentPrice}
+									priceIsUp={priceIsUp}/>
 								<input className={"orderInput"+className + " " + "input"+className} value={"$" + currentPrice}></input>
 							</label>
 

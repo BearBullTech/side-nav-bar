@@ -11,7 +11,8 @@ const MarketOrder = (props) => {
 		total,
 		onChangeHandler,
 		currentPrice,
-		marketOpen
+		marketOpen,
+		priceIsUp
 	} = props;
 	const className = marketOpen ? 'Opened' : 'Closed';
 		return (
@@ -37,7 +38,8 @@ const MarketOrder = (props) => {
 									view={view}
 									companies={companies}
 									marketOpen={marketOpen}
-									currentPrice={currentPrice}/>
+									currentPrice={currentPrice}
+									priceIsUp={priceIsUp}/>
 							<span> ${currentPrice} </span>
 							</label>
 
